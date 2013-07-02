@@ -1,6 +1,6 @@
 # Reverse Polish Notation Calculator
 
-Demo is available at: [http://rpn.herokuapp.com](http://rpn.herokuapp.com)
+Demo is available at: [http://reverse-polish-notation.herokuapp.com](http://reverse-polish-notation.herokuapp.com)
 
 Algorithm derived from: 
 [http://en.wikipedia.org/wiki/Reverse_Polish_notation#Current_implementations](http://en.wikipedia.org/wiki/Reverse_Polish_notation#Current_implementations)
