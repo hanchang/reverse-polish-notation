@@ -1,6 +1,13 @@
 %h1 Reverse Polish Notation Calculator
 
-%p Please enter a valid expression below:
+.well
+  You can use the following operators:
+  %pre + - * / ^ %
+
+%p 
+  This calculator takes integer values only.
+  %br
+  Please enter a valid expression below:
 
 = form_tag('/calculate', method: :get) do
   = text_area_tag('input', nil, rows: 5, cols: 25)
