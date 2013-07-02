@@ -1,4 +1,8 @@
 ReversePolishNotation::Application.routes.draw do
+  get "rpn_calculator/index"
+
+  get "rpn_calculator/calculate"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
