@@ -1,2 +1,8 @@
-%h1 RpnCalculator#index
-%p Find me in app/views/rpn_calculator/index.html.haml
+%h1 Reverse Polish Notation Calculator
+
+%p Please enter a valid expression below:
+
+= form_tag('/calculate', method: :get) do
+  = text_area_tag('input', nil, rows: 5, cols: 25)
+  %br
+  = submit_tag('Calculate!')

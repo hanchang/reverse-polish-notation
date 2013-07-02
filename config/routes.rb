@@ -1,7 +1,6 @@
 ReversePolishNotation::Application.routes.draw do
-  get "rpn_calculator/index"
-
-  get "rpn_calculator/calculate"
+  get "/" => 'rpn_calculator#index', as: :root
+  get "/calculate" => 'rpn_calculator#calculate', as: :calculate
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
