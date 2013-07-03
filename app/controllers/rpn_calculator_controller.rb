@@ -34,6 +34,11 @@ class RpnCalculatorController < ApplicationController
     else
       @output = ERROR_MESSAGE % params[:input]
     end
+
+    respond_to do |format|
+      format.json { render :text => @output }
+      format.html # index.html.haml
+    end
   end
 
   private
