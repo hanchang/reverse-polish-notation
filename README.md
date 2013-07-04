@@ -30,7 +30,6 @@ I neglected to write view tests and only wrote controller tests.
 The following areas could be improved:
 
 * Allow all valid Ruby operators by using Ruby metaprogramming instead of whitelisting approved operators
-* GET parameter for /calculate could be AJAX'ed for a slicker user interface 
 * Moving the calculator logic into a model or library for a slimmer controller and eschewing private controller method tests 
 * Some front end tender love and care
 * Trying my hand at a decimal compatible RPN?
