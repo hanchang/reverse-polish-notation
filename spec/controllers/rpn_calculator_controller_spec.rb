@@ -20,7 +20,7 @@ describe RpnCalculatorController do
 
     it "handles missing input" do
       get 'calculate'
-      response.should redirect_to(root_path)
+      response.should contain('You must enter inputs to calculate.')
     end
 
     it "calculates addition" do
@@ -113,6 +113,16 @@ describe RpnCalculatorController do
       response.body.should contain('is invalid')
     end
 
+    it "gives an error message on invalid postfix argument" do
+      get 'calculate', input: '1 1 1 1+'
+      response.body.should contain('is invalid')
+    end
+
+    it "gives an error message on invalid postfix arguments" do
+      get 'calculate', input: '1 1 1 notpostfix'
+      response.body.should contain('is invalid')
+    end
+
     # Courtesy of http://csserver.evansville.edu/~acm/progcont/2011/testcases.html
     it "calculates 5 1 2 + 4 * 3 - +" do
       get 'calculate', input: '5 1 2 + 4 * 3 - +'
@@ -146,7 +156,7 @@ describe RpnCalculatorController do
     end
 
     it 'returns false on all other strings' do
-      %w[- a A xy XX -999a ' '' """ why?].each do |val|
+      %w[- a A xy XX -999a ' '' """ why? 1+].each do |val|
         @controller.send(:is_value?, val).should be_false
       end
     end
@@ -168,7 +178,7 @@ describe RpnCalculatorController do
     end
 
     it 'returns false on all other strings' do
-      %w[-- a A xy XX -999a ' '' """ why?].each do |val|
+      %w[-- a A xy XX -999a ' '' """ why? 1+].each do |val|
         @controller.send(:is_operator?, val).should be_false
       end
     end
