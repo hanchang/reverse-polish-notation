@@ -1,20 +1,13 @@
 .row
   .span6
-    You can use the following operators:
-    %pre + - * / ^ %
-
-    %p 
-      This calculator takes integer values only.
-      %br
-      Please enter a valid expression below:
+    %p Please enter a valid postfix expression below:
 
     = form_tag('/calculate', method: :get) do
       = text_area_tag 'input', nil, :rows => '10', :id => 'calc-input'
-      %br
-      = submit_tag 'Calculate!', :class => 'pull-right btn btn-primary'
-
-    %a.btn(onclick="calculate('')") Test
+      -# Enable to use non-Ajax form submission.
+      -#= submit_tag 'Calculate', :class => 'btn btn-primary'
+      %a.btn.btn-primary.pull-right(onclick="$.get('/calculate.text?' + $('#calc-input').serialize(), function(data) { $('#results').html(data) })") Calculate
 
   .span6
-    Results
-    %pre#results
+    %p Results
+    %pre#results(style='height: 190px')
